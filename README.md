@@ -41,7 +41,7 @@ http://127.0.0.1:8000/docs
 ```
 
 ## Predict Malicious Likelihood
-Using a linear regression model with a maximum of 1000 iterations, we should be able to predict the malicious likelihood of a given IP address, contained in the dataset.
+Using a linear regression model with a maximum of 1000 iterations, we should be able to predict the malicious likelihood of a given IP address, contained in the dataset. This should work well since we are using a binary (malicious or benign) variable.
 
 To predict malicious likelihood, send a GET request to /predict with the responding IP address as a query parameter (replace <RESPONDING_IP> with the appropriate IP address):
 
