@@ -16,7 +16,7 @@ To set up the project, clone the repository and install the necessary dependenci
 git clone https://github.com/sdave777/Network-Analysis-and-DCO-Prioritization.git
 cd Network-Analysis-and-DCO-Prioritization
 pip install -r requirements.txt
-
+```bash
 ## Usage
 
 The project includes several scripts and a FastAPI application for interacting with the predictive model and performing hypothesis tests.
