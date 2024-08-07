@@ -67,6 +67,6 @@ The results of the analysis are documented in the Results section of this reposi
 ## Future Work
 Future enhancements could include:
 
--Integrating additional data sources for a more comprehensive analysis.
--Implementing real-time monitoring and prediction.
--Exploring more advanced machine learning models to improve prediction accuracy.
+- Integrating additional data sources for a more comprehensive analysis.
+- Implementing real-time monitoring and prediction.
+- Exploring more advanced machine learning models to improve prediction accuracy.
