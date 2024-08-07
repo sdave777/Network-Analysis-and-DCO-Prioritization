@@ -33,7 +33,7 @@ To predict malicious likelihood, send a GET request to /predict with the respond
 curl -X 'GET' \
   'http://127.0.0.1:8000/predict?ip=<RESPONDING_IP>' \
   -H 'accept: application/json'
-  
+ ``` 
 ## Hypothesis Tests
 
 ### Duration-Based Test
@@ -46,7 +46,7 @@ To use this endpoint, send a GET request with a duration threshold:
 curl -X 'GET' \
   'http://127.0.0.1:8000/hypothesis/duration?threshold=<DURATION_THRESHOLD>' \
   -H 'accept: application/json'
-  
+``` 
 ### Protocol-Based Test
 
 The /hypothesis/protocol endpoint tests whether the type of protocol (TCP/UDP) affects the likelihood of malicious activity.
@@ -57,7 +57,7 @@ To use this endpoint, send a GET request specifying the protocol:
 curl -X 'GET' \
   'http://127.0.0.1:8000/hypothesis/protocol?protocol=<PROTOCOL>' \
   -H 'accept: application/json'
-  
+```  
 ## Results
 
 The results of the analysis are documented in the Results section of this repository. Key findings include:
