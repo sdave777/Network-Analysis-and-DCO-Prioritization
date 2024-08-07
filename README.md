@@ -69,4 +69,5 @@ Future enhancements could include:
 
 - Integrating additional data sources for a more comprehensive analysis.
 - Implementing real-time monitoring and prediction.
-- Exploring more advanced machine learning models to improve prediction accuracy.
+- Integrating a hardware/software list or network topology for better predictors.
+- Using hardware/software information to predict initial access and possible lateral movement points within the network.
