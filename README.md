@@ -2,6 +2,12 @@
 
 This repository contains code and resources for performing predictive analysis of malicious traffic using logs from a poorly configured Intrusion Detection System (IDS). The primary goal is to identify potential threats and test recommended mitigations quantitatively.
 
+An exploratory analysis of the dataset can be found at:
+
+```url
+https://github.com/sdave777/Internet-of-Things_IDS_Data
+```
+
 ## Introduction
 This project attempts a predictive analysis of malicious traffic using IDS logs. It further aims to test various mitigation strategies to enhance network security. The analyses include:
 - Predicting the likelihood of malicious activity based on network traffic data.
