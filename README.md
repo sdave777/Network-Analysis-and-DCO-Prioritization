@@ -53,6 +53,8 @@ curl -X 'GET' \
 
 ## Hypothesis Tests
 
+The sample size for both of these is 23,145. This is large enough to give us a power of 99.6%.
+
 ### Duration-Based Test
 - The null hypothesis (H0): There is no significant difference in malicious likelihood between long and short duration connections.
 - The alternative hypothesis (H1): There is a significant difference in malicious likelihood between long and short duration connections.
