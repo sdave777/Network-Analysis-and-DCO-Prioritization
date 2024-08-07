@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, accuracy_score
 from joblib import dump
 import ipaddress
@@ -41,7 +41,7 @@ target = 'label'
 X = data[features]
 y = data[target]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-model = RandomForestClassifier(n_estimators=100, random_state=42)
+model = LogisticRegression(max_iter=1000, random_state=42)
 model.fit(X_train, y_train)
 
 # Evaluation
@@ -50,6 +50,6 @@ print(classification_report(y_test, y_pred))
 print('Accuracy:', accuracy_score(y_test, y_pred))
 
 # Save the model and label encoders
-dump(model, './data/random_forest_model.joblib')
+dump(model, './data/logistic_regression_model.joblib')
 dump(proto_encoder, './data/proto_encoder.joblib')
 dump(conn_state_encoder, './data/conn_state_encoder.joblib')

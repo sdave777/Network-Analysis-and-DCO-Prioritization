@@ -11,7 +11,7 @@ file_path = './data/IOTNet24_IDS.csv'
 data = pd.read_csv(file_path)
 
 # Load the trained model and label encoders
-model = load('./data/random_forest_model.joblib')
+model = load('./data/logistic_regression_model.joblib')
 proto_encoder = load('./data/proto_encoder.joblib')
 conn_state_encoder = load('./data/conn_state_encoder.joblib')
 
@@ -43,12 +43,5 @@ mean_udp_likelihood = udp_data['malicious_likelihood'].mean()
 
 # Perform hypothesis test (t-test)
 t_stat, p_value = ttest_ind(tcp_data['malicious_likelihood'], udp_data['malicious_likelihood'])
-
-# import ace_tools as tools; tools.display_dataframe_to_user(name="Malicious Likelihood Analysis for TCP vs UDP", dataframe=pd.DataFrame({
-#     'Mean TCP Malicious Likelihood': [mean_tcp_likelihood],
-#     'Mean UDP Malicious Likelihood': [mean_udp_likelihood],
-#     'T-Statistic': [t_stat],
-#     'P-Value': [p_value]
-# }))
 
 print("mean udp probability: ", mean_tcp_likelihood, "mean tcp probability: ", mean_udp_likelihood, "t-stat: ", t_stat, "p-value: ", p_value)

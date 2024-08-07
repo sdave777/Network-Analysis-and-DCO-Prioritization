@@ -9,7 +9,7 @@ app = FastAPI()
 
 # Load the trained model and label encoders
 try:
-    model = load('./data/random_forest_model.joblib')
+    model = load('./data/logistic_regression_model.joblib')
     proto_encoder = load('./data/proto_encoder.joblib')
     conn_state_encoder = load('./data/conn_state_encoder.joblib')
 except FileNotFoundError:
@@ -182,4 +182,4 @@ def hypothesis_protocol(protocol: str = Query(..., description="Protocol to test
         raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
 
 # To run the app, use the command:
-# uvicorn API:app --reload
+# uvicorn API:app

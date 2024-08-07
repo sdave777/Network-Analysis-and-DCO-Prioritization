@@ -5,13 +5,14 @@ import pandas as pd
 from joblib import load
 import ipaddress
 from scipy.stats import ttest_ind
+from statsmodels.stats.power import TTestIndPower
 
 # Load the dataset
 file_path = './data/IOTNet24_IDS.csv'
 data = pd.read_csv(file_path)
 
 # Load the trained model and label encoders
-model = load('./data/random_forest_model.joblib')
+model = load('./data/logistic_regression_model.joblib')
 proto_encoder = load('./data/proto_encoder.joblib')
 conn_state_encoder = load('./data/conn_state_encoder.joblib')
 
@@ -50,11 +51,15 @@ mean_short_duration_likelihood = short_duration_data['malicious_likelihood'].mea
 # Perform hypothesis test (t-test)
 t_stat, p_value = ttest_ind(long_duration_data['malicious_likelihood'], short_duration_data['malicious_likelihood'])
 
-# import ace_tools as tools; tools.display_dataframe_to_user(name="Malicious Likelihood Analysis for Long vs Short Duration Connections", dataframe=pd.DataFrame({
-#     'Mean Long Duration Malicious Likelihood': [mean_long_duration_likelihood],
-#     'Mean Short Duration Malicious Likelihood': [mean_short_duration_likelihood],
-#     'T-Statistic': [t_stat],
-#     'P-Value': [p_value]
-# }))
-print("mean long duration probability: ", mean_long_duration_likelihood, "mean short duration probability: ", mean_short_duration_likelihood, "t-stat: ", t_stat, "p-value: ", p_value)
+effect_size = (mean_long_duration_likelihood - mean_short_duration_likelihood) / data['malicious_likelihood'].std()
+alpha = 0.05
+power_analysis = TTestIndPower()
+power = power_analysis.solve_power(effect_size=effect_size, nobs1=len(long_duration_data), alpha=alpha, ratio=len(short_duration_data)/len(long_duration_data), alternative='two-sided')
+sample_size = power_analysis.solve_power(effect_size=effect_size, power=0.8, alpha=alpha, ratio=len(short_duration_data)/len(long_duration_data), alternative='two-sided')
 
+print("Mean long duration probability:", mean_long_duration_likelihood)
+print("Mean short duration probability:", mean_short_duration_likelihood)
+print("T-Statistic:", t_stat)
+print("P-Value:", p_value)
+print("Power:", power)
+print("Required sample size for 80% power:", sample_size)
