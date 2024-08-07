@@ -8,6 +8,8 @@ An exploratory analysis of the dataset can be found at:
 https://github.com/sdave777/Internet-of-Things_IDS_Data
 ```
 
+The dataset has 23,145 observations (rows) and 18 features (columns). It consists of raw observations with details about network connections, allowing for comprehensive data analysis. There many avenues of exploration, most of which are explored in the above repository. These include malicious traffic and its relation to duration, protocol, and connection state; the data flow of network traffic; and the volume of traffic with malicious and benign behavior.
+
 ## Introduction
 This project attempts a predictive analysis of malicious traffic using IDS logs. It further aims to test various mitigation strategies to enhance network security. The analyses include:
 - Predicting the likelihood of malicious activity based on network traffic data.
