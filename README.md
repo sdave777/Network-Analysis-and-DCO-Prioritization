@@ -24,9 +24,9 @@ The project includes several scripts and a FastAPI application for interacting w
 ## Predict Malicious Likelihood
 
 The FastAPI application provides an endpoint to predict the likelihood of malicious activity for a given IP address. To run the app:
-
-uvicorn API:app --reload
-
+```sh
+uvicorn API:app
+```
 To predict malicious likelihood, send a GET request to /predict with the responding IP address as a query parameter:
 
 ```sh
