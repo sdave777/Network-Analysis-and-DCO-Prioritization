@@ -61,8 +61,8 @@ curl -X 'GET' \
 ## Results
 
 The results of the analysis are documented in the Results section of this repository. Key findings include:
--Significant differences in malicious likelihood between different protocols.
--The impact of connection duration on the likelihood of malicious activity.
+- Significant differences in malicious likelihood between different protocols.
+- The impact of connection duration on the likelihood of malicious activity.
 
 ## Future Work
 Future enhancements could include:
