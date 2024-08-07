@@ -26,7 +26,7 @@ To run the app:
 uvicorn API:app
 ```
 
-All of the following can also be easily accomplished by using the Swagger User Interface at:
+Once the app is running, the following can also be easily accomplished by using the Swagger User Interface at:
 
 ```url
 http://127.0.0.1:8000/docs
