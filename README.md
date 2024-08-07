@@ -27,13 +27,19 @@ The FastAPI application provides an endpoint to predict the likelihood of malici
 ```sh
 uvicorn API:app
 ```
-To predict malicious likelihood, send a GET request to /predict with the responding IP address as a query parameter:
+To predict malicious likelihood, send a GET request to /predict with the responding IP address as a query parameter (replace <RESPONDING_IP> with the IP address:
 
 ```sh
 curl -X 'GET' \
   'http://127.0.0.1:8000/predict?ip=<RESPONDING_IP>' \
   -H 'accept: application/json'
- ``` 
+ ```
+
+Or use the Swagger User Interface at:
+
+```url
+http://127.0.0.1:8000/docs
+```
 ## Hypothesis Tests
 
 ### Duration-Based Test
