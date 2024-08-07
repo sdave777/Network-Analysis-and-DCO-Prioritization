@@ -41,6 +41,7 @@ http://127.0.0.1:8000/docs
 ```
 
 ## Predict Malicious Likelihood
+Using a linear regression model with a maximum of 1000 iterations, we should be able to predict the malicious likelihood of a given IP address, contained in the dataset.
 
 To predict malicious likelihood, send a GET request to /predict with the responding IP address as a query parameter (replace <RESPONDING_IP> with the appropriate IP address):
 
@@ -53,6 +54,8 @@ curl -X 'GET' \
 ## Hypothesis Tests
 
 ### Duration-Based Test
+- The null hypothesis (H0): There is no significant difference in malicious likelihood between long and short duration connections.
+- The alternative hypothesis (H1): There is a significant difference in malicious likelihood between long and short duration connections.
 
 The /hypothesis/duration endpoint tests whether the duration of connections affects the likelihood of malicious activity.
 
@@ -65,7 +68,9 @@ curl -X 'GET' \
 ```
 
 ### Protocol-Based Test
-
+- Null Hypothesis (H0): There is no significant difference in the likelihood of malicious traffic between TCP and UDP traffic.
+- Alternative Hypothesis (H1): Eliminating TCP traffic and keeping only UDP traffic will reduce the likelihood of malicious traffic.
+  
 The /hypothesis/protocol endpoint tests whether the type of protocol (TCP/UDP) affects the likelihood of malicious activity.
 
 To use this endpoint, send a GET request specifying the protocol:
