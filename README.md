@@ -21,13 +21,20 @@ pip install -r requirements.txt
 
 The project includes several scripts and a FastAPI application for interacting with the predictive model and performing hypothesis tests.
 
-## Predict Malicious Likelihood
-
-The FastAPI application provides an endpoint to predict the likelihood of malicious activity for a given IP address. To run the app:
+To run the app:
 ```sh
 uvicorn API:app
 ```
-To predict malicious likelihood, send a GET request to /predict with the responding IP address as a query parameter (replace <RESPONDING_IP> with the IP address:
+
+All of the following can also be easily accomplished by using the Swagger User Interface at:
+
+```url
+http://127.0.0.1:8000/docs
+```
+
+## Predict Malicious Likelihood
+
+To predict malicious likelihood, send a GET request to /predict with the responding IP address as a query parameter (replace <RESPONDING_IP> with the appropriate IP address):
 
 ```sh
 curl -X 'GET' \
@@ -35,24 +42,20 @@ curl -X 'GET' \
   -H 'accept: application/json'
  ```
 
-Or use the Swagger User Interface at:
-
-```url
-http://127.0.0.1:8000/docs
-```
 ## Hypothesis Tests
 
 ### Duration-Based Test
 
 The /hypothesis/duration endpoint tests whether the duration of connections affects the likelihood of malicious activity.
 
-To use this endpoint, send a GET request with a duration threshold:
+To use this endpoint, send a GET request with duration threshold:
 
 ```sh
 curl -X 'GET' \
   'http://127.0.0.1:8000/hypothesis/duration?threshold=<DURATION_THRESHOLD>' \
   -H 'accept: application/json'
-``` 
+```
+
 ### Protocol-Based Test
 
 The /hypothesis/protocol endpoint tests whether the type of protocol (TCP/UDP) affects the likelihood of malicious activity.
@@ -63,7 +66,8 @@ To use this endpoint, send a GET request specifying the protocol:
 curl -X 'GET' \
   'http://127.0.0.1:8000/hypothesis/protocol?protocol=<PROTOCOL>' \
   -H 'accept: application/json'
-```  
+```
+
 ## Results
 
 The results of the analysis are documented in the Results section of this repository. Key findings include:
