@@ -7,16 +7,35 @@ An exploratory analysis of the dataset can be found at:
 ```url
 https://github.com/sdave777/Internet-of-Things_IDS_Data
 ```
+## Observations of Data
 
 The dataset has 23,145 observations (rows) and 18 features (columns). It consists of raw observations with details about network connections, allowing for comprehensive data analysis. There many avenues of exploration, most of which are explored in the above repository. These include malicious traffic and its relation to duration, protocol, and connection state; the data flow of network traffic; and the volume of traffic with malicious and benign behavior.
+
+#### Flow of Traffic
+
+It appears that all the data is seen after it passes through a router or firewall. We are unable to see where the traffic comes from, outside of the network, but we are to see which IP addresses within our network are targetted.
+
+![Network diagram, all data is routed through a router](./img/Network_Graph.png)
+
+#### Protocol Usage
+
+All of the malicious traffic is almost exclusively using the TCP protocol. This is likely due to data validation protocols built into TCP, which can be useful for malicious actors. Similarly, almost all of the benign traffic is using UDP protocol. It may be wise to limit or eliminate, if possible, any TCP traffic if we don't need to use it for this network.
+
+![UDP/TCP traffic for malicious and benign events](./img/Pie_Protocols.png)
+
+#### Malicious Events by IP
+
+Most of the malicious traffic does target 2 IP addresses. It would be interesting to see what these IP addresses, however, it's safe to assume they are the target of most of the activity.
+
+![Malicious and Benign events, most malicious traffic is over 123.59.209.185 and 185.244.25.235](./img/Malicious_Benign_EventCount.png)
+
 
 ## Introduction
 This project attempts a predictive analysis of malicious traffic using IDS logs. It further aims to test various mitigation strategies to enhance network security. The analyses include:
 - Predicting the likelihood of malicious activity based on network traffic data.
 - Performing hypothesis tests to determine the effectiveness of different security measures.
 
-## Data
-The dataset used in this project is `IOTNet24_IDS.csv`, which contains network traffic logs from an IDS. The dataset includes features such as IP addresses, ports, protocols, byte counts, and connection states.
+
 
 ## Setup
 To set up the project, clone the repository and install the necessary dependencies:
