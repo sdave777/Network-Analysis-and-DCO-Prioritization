@@ -9,9 +9,9 @@ app = FastAPI()
 
 # Load the trained model and label encoders
 try:
-    model = load('./data/logistic_regression_model.joblib')
-    proto_encoder = load('./data/proto_encoder.joblib')
-    conn_state_encoder = load('./data/conn_state_encoder.joblib')
+    model = load('../data/random_forest_model.joblib')
+    proto_encoder = load('../data/proto_encoder.joblib')
+    conn_state_encoder = load('../data/conn_state_encoder.joblib')
 except FileNotFoundError:
     raise HTTPException(status_code=500, detail="Model or encoder files not found.")
 
@@ -72,7 +72,7 @@ def predict(ip: str = Query(..., description="Responding IP address")):
 def hypothesis_duration(threshold: float = Query(..., description="Duration threshold to distinguish long and short connections")):
     try:
         # Load the dataset
-        file_path = './data/IOTNet24_IDS.csv'
+        file_path = '../data/IOTNet24_IDS.csv'
         data = pd.read_csv(file_path)
 
         # Data preprocessing
@@ -125,7 +125,7 @@ def hypothesis_duration(threshold: float = Query(..., description="Duration thre
 def hypothesis_protocol(protocol: str = Query(..., description="Protocol to test (udp or tcp)")):
     try:
         # Load the dataset
-        file_path = './data/IOTNet24_IDS.csv'
+        file_path = '../data/IOTNet24_IDS.csv'
         data = pd.read_csv(file_path)
 
         # Data preprocessing

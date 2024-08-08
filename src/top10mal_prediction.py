@@ -1,17 +1,19 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, accuracy_score
 from joblib import dump
 import ipaddress
+import numpy as np
+import matplotlib.pyplot as plt
 
 # Function to convert IP address to an integer
 def ip_to_int(ip):
     return int(ipaddress.IPv4Address(ip))
 
 # Load the dataset
-file_path = './data/IOTNet24_IDS.csv'
+file_path = '../data/IOTNet24_IDS.csv'
 data = pd.read_csv(file_path)
 
 # Data Cleaning
@@ -41,7 +43,7 @@ target = 'label'
 X = data[features]
 y = data[target]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-model = LogisticRegression(max_iter=1000, random_state=42)
+model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
 # Evaluation
@@ -49,7 +51,25 @@ y_pred = model.predict(X_test)
 print(classification_report(y_test, y_pred))
 print('Accuracy:', accuracy_score(y_test, y_pred))
 
-# Save the model and label encoders
-dump(model, './data/logistic_regression_model.joblib')
-dump(proto_encoder, './data/proto_encoder.joblib')
-dump(conn_state_encoder, './data/conn_state_encoder.joblib')
+# Predict probabilities
+y_prob = model.predict_proba(X_test)[:, 1]
+
+# Add probabilities to the test set
+X_test['probability'] = y_prob
+
+# Get top 5 most likely malicious `id.resp_h` IPs
+top_5_resp_ips = X_test.groupby('id.resp_h')['probability'].max().sort_values(ascending=False).head(10).reset_index()
+
+# Convert IPs back to string format
+top_5_resp_ips['id.resp_h'] = top_5_resp_ips['id.resp_h'].apply(lambda x: str(ipaddress.IPv4Address(x)))
+print("Top 10 most likely malicious `id.resp_h` IP addresses:")
+print(top_5_resp_ips)
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_resp_ips['id.resp_h'], top_5_resp_ips['probability'], color='skyblue')
+plt.xlabel('Probability')
+plt.ylabel('IP Address')
+plt.title('Top 10 IP Addresses, Most Likely to be Malicious')
+plt.gca().invert_yaxis()
+plt.show()

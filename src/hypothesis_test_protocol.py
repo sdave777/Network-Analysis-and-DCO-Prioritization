@@ -7,13 +7,13 @@ import ipaddress
 from scipy.stats import ttest_ind
 
 # Load the dataset
-file_path = './data/IOTNet24_IDS.csv'
+file_path = '../data/IOTNet24_IDS.csv'
 data = pd.read_csv(file_path)
 
 # Load the trained model and label encoders
-model = load('./data/logistic_regression_model.joblib')
-proto_encoder = load('./data/proto_encoder.joblib')
-conn_state_encoder = load('./data/conn_state_encoder.joblib')
+model = load('../data/random_forest_model.joblib')
+proto_encoder = load('../data/proto_encoder.joblib')
+conn_state_encoder = load('../data/conn_state_encoder.joblib')
 
 # Function to convert IP address to an integer
 def ip_to_int(ip):
