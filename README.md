@@ -25,6 +25,8 @@ All of the malicious traffic is almost exclusively using the TCP protocol. This 
 
 #### Malicious Events by IP
 
+Most of the malicious traffic does target 2 IP addresses. It would be interesting to see what these IP addresses, however, it's safe to assume they are the target of most of the activity.
+
 ![Malicious and Benign events, most malicious traffic is over 123.59.209.185 and 185.244.25.235](./img/Malicious_Benign_EventCount.png)
 
 
