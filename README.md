@@ -1,6 +1,8 @@
 # Network Analysis and DCO Prioritization
 
-This repository contains code and resources for performing predictive analysis of malicious traffic using logs from a poorly configured Intrusion Detection System (IDS). The primary goal (MVP) is to correctly calculate the probability of malicous traffic and test recommended mitigations quantitatively.
+This repository contains code and resources for performing predictive analysis of malicious traffic using logs from a poorly configured Intrusion Detection System (IDS). The primary goal is to correctly calculate the probability of malicous traffic and test recommended mitigations quantitatively.
+
+I will show that it is possible for the numbers, so to speak, to show when and where malicious traffic can occur. Then I will test my recommendations to prove their efficacy at mitigating any further malicious activity. These methods can take much of the guess work out of cybersecurity and vulnerability management, and also reduce the response time needed to make assesments about response actions.
 
 An exploratory analysis of the dataset can be found at:
 
