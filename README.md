@@ -41,7 +41,7 @@ This project attempts a predictive analysis of malicious traffic using IDS logs.
 
 The project includes several scripts and a FastAPI application for interacting with the predictive model and performing hypothesis tests.
 
-Go to the following website for the proof of concept:
+Click the following link for the proof of concept:
 
 [uvicorn API:app](https://network-analysis-and-dco-prioritization.onrender.com/docs#/)
 
