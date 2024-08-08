@@ -10,6 +10,8 @@ https://github.com/sdave777/Internet-of-Things_IDS_Data
 
 The dataset has 23,145 observations (rows) and 18 features (columns). It consists of raw observations with details about network connections, allowing for comprehensive data analysis. There many avenues of exploration, most of which are explored in the above repository. These include malicious traffic and its relation to duration, protocol, and connection state; the data flow of network traffic; and the volume of traffic with malicious and benign behavior.
 
+It appears that all the data is seen after it passes through a router or firewall. We are unable to see where the traffic comes from, outside of the network, but we are to see which IP addresses within our network are targetted.
+
 ![Network diagram, all data is routed through a router](./img/Network_Graph.png)
 
 ## Introduction
