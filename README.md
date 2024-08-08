@@ -25,7 +25,7 @@ All of the malicious traffic is almost exclusively using the TCP protocol. This 
 
 #### Malicious Events by IP
 
-![Malicious and Benign events, most malicious traffic is over 123.59.209.185 and 185.244.25.235](.img/Malicious_Benign_EventCount.png)
+![Malicious and Benign events, most malicious traffic is over 123.59.209.185 and 185.244.25.235](./img/Malicious_Benign_EventCount.png)
 
 
 ## Introduction
