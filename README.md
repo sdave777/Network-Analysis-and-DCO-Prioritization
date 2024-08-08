@@ -41,7 +41,8 @@ http://127.0.0.1:8000/docs
 ```
 
 ## Predict Malicious Likelihood
-Using a linear regression model with a maximum of 1000 iterations, we should be able to predict the malicious likelihood of a given IP address, contained in the dataset. This should work well since we are using a binary (malicious or benign) variable.
+A linear regression model was attempted, but it wasn't realistic or working with this type of data. I found that a random forest classifier is the more than situable for this situation, however. It is able to take in multiple variables and provide a probability based on observed behaviors. We are able to factor in malicious likelihood due to protocol (UDP or TCP), duration of connections, type of connections, amount data transfered, port usage and whether similar events were malicious or benign. This should give us a more behavior based prediction and is useful in scenarios such as with an IP address that is rarely used, but necessary to have, and only has malicious traffic logged for it because it is rarely used.
+
 
 To predict malicious likelihood, send a GET request to /predict with the responding IP address as a query parameter (replace <RESPONDING_IP> with the appropriate IP address):
 
